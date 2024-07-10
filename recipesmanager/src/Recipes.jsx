@@ -7,7 +7,6 @@ function Recipes() {
     const [newDescription, setNewDescription] = useState("");
     const [newCategory, setNewCategory] = useState("");
     const [showFavourite, setShowFavourite] = useState(false);
-    const [sortShow, setSortShow] = useState(false);
     const [generateReport, setGenerateReport] = useState(false);
     const [tempDescription, setTempDescription] = useState("");
     const [search, setSearch] = useState("");
@@ -77,8 +76,12 @@ function Recipes() {
         setShowFavourite(!showFavourite);
     }
 
-    function toggleSortShow() {
-        setSortShow(!sortShow);
+
+    function sortRecipesByCategory(){
+        const sortedRecipes = [...recipes].sort((a, b) =>
+            a.category.localeCompare(b.category)
+        );
+        setRecipes(sortedRecipes);
     }
 
 
@@ -126,10 +129,6 @@ function Recipes() {
         if(showFavourite){
             displayList = recipes.filter((recipe)=>recipe.favourite===true)
             return displayList
-        } else if(sortShow){
-            displayList = recipes.sort((a, b) =>
-                a.category.localeCompare(b.category))
-            return displayList
         } else{
             return displayList
         }
@@ -176,8 +175,8 @@ function Recipes() {
                 <button className="show-button" onClick={toggleShowFavourite}>
                     {showFavourite ? "Show All" : "Show Favourite"}
                 </button>
-                <button className="show-button" onClick={toggleSortShow}>
-                    {sortShow ? "Unsorted" : "Sorted"}
+                <button className="show-button" onClick={sortRecipesByCategory}>
+                    Sort
                 </button>
                 <form className="filter-form" onSubmit={(e)=>e.preventDefault()}>
                     <input id="recipeFilter" type="text" placeholder="search recipes" value={temp} onChange={(e)=>setTemp(e.target.value)}/>

@@ -45,7 +45,6 @@ This is the main component of the application which includes all the functionali
   - `newDescription`: Description of the new recipe.
   - `newCategory`: Category of the new recipe.
   - `showFavourite`: Boolean to toggle favorite recipes view.
-  - `sortShow`: Boolean to toggle sorted recipes view.
   - `generateReport`: Boolean to toggle the display of the report.
   - `tempDescription`: Temporary description for updating a recipe.
   - `search`: Search query.
@@ -56,7 +55,7 @@ This is the main component of the application which includes all the functionali
   - `deleteRecipe(id)`: Deletes a recipe from the list.
   - `toggleFavourite(id)`: Toggles the favorite status of a recipe.
   - `toggleShowFavourite()`: Toggles the view to show only favorite recipes.
-  - `toggleSortShow()`: Toggles the view to show sorted recipes by category.
+  - `sortRecipesByCategory`: Permanently sort the existing list.
   - `report()`: Toggles the display of the report.
   - `toggleUpdate(id)`: Toggles the update description input for a recipe.
   - `handleUpdateDescription(id)`: Updates the description of a recipe.
